@@ -6,7 +6,7 @@ function createAddress(array $data)
     global $conn;
 
     // Prepare the SQL query with explicit column names and use the correct table name
-    $query = "INSERT INTO adresse (street, street_nb, type, city, zipcode) VALUES (?, ?, ?, ?, ?)";
+    $query = "INSERT INTO address (street, street_nb, type, city, zipcode) VALUES (?, ?, ?, ?, ?)";
 
     // Check if the statement is prepared successfully
     if ($stmt = mysqli_prepare($conn, $query)) {
@@ -35,7 +35,7 @@ function getAllAddresses()
     global $conn;
 
     // Fetch all addresses from the 'adresse' table
-    $result = mysqli_query($conn, "SELECT * FROM adresse");
+    $result = mysqli_query($conn, "SELECT * FROM address");
 
     $data = [];
     // Iterate through the result set and store data in an array
@@ -51,7 +51,7 @@ function getAddressById(int $id)
     global $conn;
 
     // Fetch an address by ID from the 'adresse' table
-    $result = mysqli_query($conn, "SELECT * FROM adresse WHERE id = " . $id);
+    $result = mysqli_query($conn, "SELECT * FROM address WHERE id = " . $id);
 
     // Retrieve the data as an associative array
     $data = mysqli_fetch_assoc($result);
@@ -64,7 +64,7 @@ function updateAddress(array $data)
     global $conn;
 
     // Prepare the SQL query for updating an address
-    $query = "UPDATE adresse SET street = ?, street_nb = ?, type = ?, city = ?, zipcode = ? WHERE id = ?";
+    $query = "UPDATE address SET street = ?, street_nb = ?, type = ?, city = ?, zipcode = ? WHERE id = ?";
 
     // Check if the statement is prepared successfully
     if ($stmt = mysqli_prepare($conn, $query)) {
@@ -94,7 +94,7 @@ function deleteAddress(int $id)
     global $conn;
 
     // Prepare the SQL query for deleting an address
-    $query = "DELETE FROM adresse WHERE id = ?";
+    $query = "DELETE FROM address WHERE id = ?";
 
     // Check if the statement is prepared successfully
     if ($stmt = mysqli_prepare($conn, $query)) {

@@ -29,7 +29,7 @@ $allAddresses = getAllAddresses();
                 </li>
             <?php endforeach; ?>
         </ul>
-        <a href="./index.php">Go to index</a>
+        <a href="./index.php">Accueil</a>
     </div>
 </body>
 </html>
